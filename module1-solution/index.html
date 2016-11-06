@@ -6,24 +6,40 @@
     <link rel="stylesheet" href="styles/bootstrap.min.css">
     <style>
       .message { font-size: 1.3em; font-weight: bold; }
+      .valid-message {
+        color : green;
+        }
+        .valid-text{
+          border-color: green;
+        }
+      .invalid-message { 
+        color : red;
+        }
+        .invalid-text{
+          border-color: red;
+        }
     </style>
   </head>
-<body>
-   <div class="container">
+<body ng-app="LunchCheck">
+   <div class="container" ng-controller="LunchCheckController">
      <h1>Lunch Checker</h1>
-
          <div class="form-group">
              <input id="lunch-menu" type="text"
              placeholder="list comma separated dishes you usually have for lunch"
-             class="form-control">
+             class="form-control"
+             ng-model="lunch"
+             ng-class="textboxClass">
+             <p class="text-muted">Empty items between a comma are not counted.</p>
          </div>
          <div class="form-group">
-             <button class="btn btn-default">Check If Too Much</button>
+             <button class="btn btn-default" ng-click="performCheck()">Check If Too Much</button>
          </div>
-         <div class="form-group message">
+         <div class="form-group message" ng-class="messageClass">
            <!-- Your message can go here. -->
+            {{message}}
          </div>
    </div>
-
+   <script src="lib/angular.min.js"></script>
+   <script src="app.js"></script>
 </body>
 </html>
