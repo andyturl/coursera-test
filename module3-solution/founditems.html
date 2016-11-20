@@ -1,12 +1,14 @@
-<h4>Found items</h4>
-<div class="panel panel-default" ng-repeat="item in list.foundItems">
-    <div class="panel-heading">
-        {{ item.short_name }}&nbsp;<strong>{{ item.name }}</strong>
+<div ng-if="list.foundItems">
+    <h4>Found items</h4>
+    <div class="panel panel-default" ng-repeat="item in list.foundItems">
+        <div class="panel-heading">
+            {{ item.short_name }}&nbsp;<strong>{{ item.name }}</strong>
+        </div>
+        <div class="panel-body">
+            {{ item.description }}<br />
+            <button ng-click="list.onRemove({index: $index});" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span>&nbsp;Don't want this one!</button>
+        </div>
     </div>
-    <div class="panel-body">
-        {{ item.description }}<br />
-        <button ng-click="list.onRemove({index: $index});" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-remove"></span>&nbsp;Don't want this one!</button>
-    </div>
-</div>
 
-<p class="text-muted" ng-if="!list.anyItems();">No items.</p>
+    <p class="text-muted" ng-if="!list.anyItems();">No items.</p>
+</div>
