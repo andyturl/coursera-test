@@ -29,7 +29,7 @@
             search.found.splice(index, 1);
         };
 
-    };
+    }
 
 
     MenuSearchService.$inject = ['$http', 'CONFIG'];
@@ -48,8 +48,8 @@
                 }
                 return foundItems;
             });
-        }
-    };
+        };
+    }
 
     function FoundItemsDirective() {
         var ddo = {
@@ -65,7 +65,7 @@
         };
 
         return ddo;
-    };
+    }
 
     function FoundItemsDirectiveController() {
         var list = this;
@@ -73,6 +73,6 @@
         list.anyItems = function () {
             return list.foundItems && list.foundItems.length > 0;
         };
-    };
+    }
 
 })();
