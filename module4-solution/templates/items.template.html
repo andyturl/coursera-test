@@ -1,5 +1,5 @@
 <a ui-sref="categories">&lt;&lt; Back to categories</a>
-<br/> Items in the {{ $ctrl.items.category.name }} category
+<h2>Items in the {{ ctrl.categoryName }} category</h2>
 <ul>
-    <li ng-repeat="item in $ctrl.items.menu_items">{{item.name}}</li>
+    <li ng-repeat="item in ctrl.menuItems">{{item.name}}</li>
 </ul>
