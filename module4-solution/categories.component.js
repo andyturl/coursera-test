@@ -6,7 +6,8 @@
             templateUrl: 'templates/categories.template.html',
             bindings: {
                 items: '<'
-            }
+            }//,
+            //controller: 'CategoriesController as ctrl'
         });
 
 })();
