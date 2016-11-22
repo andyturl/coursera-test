@@ -19,11 +19,12 @@
 
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'templates/categories.template.html',
-                controller: 'CategoriesController as ctrl',
+                // templateUrl: 'templates/categories.template.html',
+                // controller: 'CategoriesController as ctrl',
+                //component: 'categories',
+                template: '<categories items="$resolve.items"></categories>',
                 resolve: {
-                    items: ['MenuDataService', function (MenuDataService) {
-                        console.log('getting categories');
+                    items: ['MenuDataService', function (MenuDataService) {                        
                         return MenuDataService.getAllCategories();
                     }]
                 }
@@ -31,11 +32,11 @@
 
             .state('items', {
                 url: '/items/{category}',
-                templateUrl: 'templates/items.template.html',
-                controller: 'ItemsController as ctrl',
+                // templateUrl: 'templates/items.template.html',
+                // controller: 'ItemsController as ctrl',
+                template: '<items items="$resolve.items"></items>',
                 resolve: {
-                    items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
-                        console.log('getting item');
+                    items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {                                         
                         return MenuDataService.getItemsForCategory($stateParams.category);
                     }]
                 }

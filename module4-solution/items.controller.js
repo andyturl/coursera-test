@@ -9,6 +9,7 @@
         var ctrl = this;
         console.log(items);
         ctrl.items = items.data.menu_items;
+        ctrl.category = items.data.category;
     }
 
 })();
