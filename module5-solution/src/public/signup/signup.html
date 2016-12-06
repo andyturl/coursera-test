@@ -1,1 +1,27 @@
-signup
+<div class="container">
+    <h2 class="text-center">Sign Up</h2>
+    <form name="signUpForm" novalidate>
+        <div class="form-group">
+            <label>First name:</label>
+            <input type="text" class="form-control" ng-model="signUpCtrl.firstname" required />            
+        </div>
+        <div class="form-group">
+            <label>Last name:</label>
+            <input type="text" class="form-control" ng-model="signUpCtrl.lastname" required />
+        </div>
+        <div class="form-group">
+            <label>Email address:</label>
+            <input type="text" class="form-control" ng-model="signUpCtrl.email" required />
+        </div>
+        <div class="form-group">
+            <label>Phone number:</label>
+            <input type="text" class="form-control" ng-model="signUpCtrl.phoneNumber" required />
+        </div>
+        <div class="form-group">
+            <label>Favourite dish:</label>
+            <input type="text" class="form-control" ng-model="signUpCtrl.favouriteDish" required />
+        </div>
+        <button class="btn btn-default" ng-click="signUpCtrl.hello()"
+                ng-disabled="signUpForm.$invalid">Submit</button>
+    </form>
+</div>
