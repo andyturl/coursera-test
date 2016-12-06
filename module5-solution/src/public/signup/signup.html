@@ -3,25 +3,38 @@
     <form name="signUpForm" novalidate>
         <div class="form-group">
             <label>First name:</label>
-            <input type="text" class="form-control" ng-model="signUpCtrl.firstname" required />            
+            <input type="text" class="form-control" ng-model="signUpCtrl.firstname" name="firstname" required />     
+            <span ng-if="signUpForm.firstname.$error.required && signUpForm.firstname.$touched">
+                First name is required
+            </span>       
         </div>
         <div class="form-group">
             <label>Last name:</label>
-            <input type="text" class="form-control" ng-model="signUpCtrl.lastname" required />
+            <input type="text" class="form-control" ng-model="signUpCtrl.lastname" name="lastname" required />
+            <span ng-if="signUpForm.lastname.$error.required && signUpForm.lastname.$touched">
+                Last name is required
+            </span>    
         </div>
         <div class="form-group">
             <label>Email address:</label>
-            <input type="text" class="form-control" ng-model="signUpCtrl.email" required />
+            <input type="text" class="form-control" ng-model="signUpCtrl.email" name="email" required />
+            <span ng-if="signUpForm.email.$error.required && signUpForm.email.$touched">
+                Email is required
+            </span>   
         </div>
         <div class="form-group">
             <label>Phone number:</label>
-            <input type="text" class="form-control" ng-model="signUpCtrl.phoneNumber" required />
+            <input type="text" class="form-control" ng-model="signUpCtrl.phoneNumber" name="phoneNumber" required />
+            <span ng-if="signUpForm.phoneNumber.$error.required && signUpForm.phoneNumber.$touched">
+                Phone number is required
+            </span>   
         </div>
         <div class="form-group">
             <label>Favourite dish:</label>
             <input type="text" class="form-control" ng-model="signUpCtrl.favouriteDish" required />
         </div>
-        <button class="btn btn-default" ng-click="signUpCtrl.hello()"
+        <button class="btn btn-default"
+                ng-click="signUpCtrl.hello()"
                 ng-disabled="signUpForm.$invalid">Submit</button>
     </form>
 </div>
