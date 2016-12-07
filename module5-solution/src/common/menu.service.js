@@ -5,8 +5,8 @@ angular.module('common')
 .service('MenuService', MenuService);
 
 
-MenuService.$inject = ['$http', 'ApiPath'];
-function MenuService($http, ApiPath) {
+MenuService.$inject = ['$http', 'ApiPath', '$q'];
+function MenuService($http, ApiPath, $q) {
   var service = this;
 
   service.getCategories = function () {
@@ -25,6 +25,13 @@ function MenuService($http, ApiPath) {
     return $http.get(ApiPath + '/menu_items.json', config).then(function (response) {
       return response.data;
     });
+  };
+
+  service.validateFavourite = function(shortName) {
+    var deffered = $q.defer();
+    console.log('hi from validateFavourite ', shortName);
+    deffered.reject('oh no');
+    return deffered.promise;
   };
 
 }

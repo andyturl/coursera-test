@@ -3,11 +3,18 @@
 
     angular.module('public').controller('SignUpController', SignUpController);
 
-    function SignUpController() {
+    SignUpController.$inject = ['MenuService'];
+    function SignUpController(MenuService) {
         var signUpCtrl = this;
 
-        signUpCtrl.hello = function(){
-            console.log('hi hi');            
+        signUpCtrl.submit = function(){
+            MenuService.validateFavourite(signUpCtrl.favouriteDish).then(function(response){
+                // success
+                console.log('success');
+            }, function(response){
+                // failed
+                console.log('failed');
+            });
         };
     }
 })();
