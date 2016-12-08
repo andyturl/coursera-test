@@ -12,7 +12,15 @@
                 // success
                 console.log('success ', response);
                 signUpCtrl.invalidFavourite = false;
-                SignUpService.save();
+                var data = {
+                    firstname : signUpCtrl.firstname,
+                    lastname : signUpCtrl.lastname,
+                    email : signUpCtrl.email,
+                    phoneNumber : signUpCtrl.phoneNumber,
+                    favouriteDish : signUpCtrl.favouriteDish
+                }
+
+                SignUpService.save(data);
             }, function (response) {
                 // failed
                 console.log('failed ', response);

@@ -9,6 +9,12 @@
         
         service.save = function(data) {
             console.log('saving...');
+            service.data = data;
+            console.log(data);
+        };
+
+        service.getData = function() {
+            return service.data;
         };
     }
 })();
