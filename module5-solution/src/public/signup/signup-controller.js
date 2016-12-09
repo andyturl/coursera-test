@@ -7,18 +7,18 @@
     function SignUpController(MenuService, SignUpService) {
         var signUpCtrl = this;
 
-        signUpCtrl.submit = function () {
-            MenuService.validateFavourite(signUpCtrl.favouriteDish).then(function (response) {
-                // success
-                console.log('success ', response);
+        signUpCtrl.submit = function () {            
+            MenuService.getMenuItem(signUpCtrl.favouriteDish.toUpperCase()).then(function (menuItem) {
+                // success                
+                console.log('success ', menuItem);
                 signUpCtrl.invalidFavourite = false;
                 var data = {
                     firstname : signUpCtrl.firstname,
                     lastname : signUpCtrl.lastname,
                     email : signUpCtrl.email,
                     phoneNumber : signUpCtrl.phoneNumber,
-                    favouriteDish : signUpCtrl.favouriteDish
-                }
+                    favouriteDish : menuItem
+                };
 
                 SignUpService.save(data);
             }, function (response) {

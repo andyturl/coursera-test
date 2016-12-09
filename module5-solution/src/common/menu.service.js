@@ -27,16 +27,16 @@
       });
     };
 
-    service.validateFavourite = function (shortName) {
-      var deffered = $q.defer();              
-      $http.get(ApiPath + '/categories/' + shortName + '.json').then(function (response) {
-        deffered.resolve('valid shortname');
+    service.getMenuItem = function (shortName) {
+      var defered = $q.defer();
+      $http.get(ApiPath + '/menu_items/' + shortName + '.json').then(function (response) {
+        defered.resolve(response.data);
         console.log('valid shortname');
       }, function (response) {
-        deffered.reject('invalid shortname');
+        defered.reject('invalid shortname');
         console.log('invalid shortname');
       });
-      return deffered.promise;
+      return defered.promise;
 
     };
 

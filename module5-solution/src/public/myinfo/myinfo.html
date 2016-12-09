@@ -1,1 +1,4 @@
-My info
+<div class="container">
+    <user-info ng-if="myInfoCtrl.savedData" user-info="myInfoCtrl.savedData"></user-info>
+    <span ng-if="!myInfoCtrl.savedData" >No menu item </span>
+</div>
