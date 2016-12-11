@@ -7,24 +7,20 @@
     function SignUpController(MenuService, SignUpService) {
         var signUpCtrl = this;
 
-        signUpCtrl.submit = function () {            
+        signUpCtrl.submit = function () {
             MenuService.getMenuItem(signUpCtrl.favouriteDish.toUpperCase()).then(function (menuItem) {
-                // success                
-                console.log('success ', menuItem);
                 signUpCtrl.invalidFavourite = false;
                 var data = {
-                    firstname : signUpCtrl.firstname,
-                    lastname : signUpCtrl.lastname,
-                    email : signUpCtrl.email,
-                    phoneNumber : signUpCtrl.phoneNumber,
-                    favouriteDish : menuItem
+                    firstname: signUpCtrl.firstname,
+                    lastname: signUpCtrl.lastname,
+                    email: signUpCtrl.email,
+                    phoneNumber: signUpCtrl.phoneNumber,
+                    favouriteDish: menuItem
                 };
-
                 SignUpService.save(data);
+                signUpCtrl.saveSuccessful = true;
             }, function (response) {
-                // failed
-                console.log('failed ', response);
-                signUpCtrl.invalidFavourite = true;                
+                signUpCtrl.invalidFavourite = true;
             });
         };
     }
