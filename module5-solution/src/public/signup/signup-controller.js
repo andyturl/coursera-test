@@ -1,4 +1,4 @@
-(function () {
+(function() {
     "use strict";
 
     angular.module('public').controller('SignUpController', SignUpController);
@@ -7,8 +7,8 @@
     function SignUpController(MenuService, SignUpService) {
         var signUpCtrl = this;
 
-        signUpCtrl.submit = function () {
-            MenuService.getMenuItem(signUpCtrl.favouriteDish.toUpperCase()).then(function (menuItem) {
+        signUpCtrl.submit = function() {
+            MenuService.getMenuItem(signUpCtrl.favouriteDish.toUpperCase()).then(function(menuItem) {
                 signUpCtrl.invalidFavourite = false;
                 var data = {
                     firstname: signUpCtrl.firstname,
@@ -19,7 +19,7 @@
                 };
                 SignUpService.save(data);
                 signUpCtrl.saveSuccessful = true;
-            }, function (response) {
+            }, function(response) {
                 signUpCtrl.invalidFavourite = true;
             });
         };

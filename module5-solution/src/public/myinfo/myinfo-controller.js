@@ -8,11 +8,5 @@
         var myInfoCtrl = this;
         
         myInfoCtrl.savedData = savedData;
-
-
-        // myInfoCtrl.getSavedData = function(){
-        //     var data = SignUpService.getSavedData();
-        //     myInfoCtrl.menu_item = data.favouriteDish;
-        // };
     }
 })();
